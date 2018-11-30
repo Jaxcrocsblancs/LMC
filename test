@@ -1,7 +1,0 @@
-%regle rename qui test si les deux parametre sont des variables (coupe à la fin pour reduire l'arbre).
-regle(X?=T,rename):- var(X),var(T).
-%regle simplify qui test que le permier paramètre est une variable et le second une constante (coupe à la fin pour reduire l'arbre)
-regle(X?=T,simplify):- var(X),atomic(T).
-
-
-
