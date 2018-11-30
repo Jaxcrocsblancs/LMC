@@ -45,6 +45,6 @@ regle(F1?=F2,clash):- functor(F1,N,A),functor(F2,N,A),!.
 % en effet il n'est pas possible de remonter un test vrai aux milieu d'autre test faux. Nous avons donc décidé de faire l'inverse 
 % on test si tout les éléments sont différents et on retourne l'opposé. Si un argument est égaux à X un faux remonte dans notoccur_check
 % pour finir par retourner vrai dans occur_check
-occur_check(X,T):- T =.. [_|R], \+notoccur_check(X,R)!.
+occur_check(X,T):- T =.. [_|R], \+notoccur_check(X,R),!.
 notoccur_check(X,[]).
-notoccur_check(X,[T|R]):- X\==T, notoccur_check(X,R)!.
+notoccur_check(X,[T|R]):- X\==T, notoccur_check(X,R),!.
