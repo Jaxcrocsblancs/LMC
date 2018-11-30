@@ -34,10 +34,10 @@ regle(X?=T,check):- X\==T,occur_check(X,T),!.
 regle(T?=X,orient):- \+var(T),var(X),!.
 
 %regle decompose retourne vrai si F1 et F2 sont deux fonctions avec le même nom et avec la même arité
-regle(F1?=F2,decompose):- functor(F1,N,A), functor(F2,N,A),!.
+regle(F1?=F2,decompose):-  compound(F1), compound(F2), functor(F1,N,A), functor(F2,N,A),!.
 
 %regle clash test si les fonction on la même arité et si elles on le même nom
-regle(F1?=F2,clash):- functor(F1,N,A),functor(F2,N,A),!.
+regle(F1?=F2,clash):-  compound(F1), compound(F2), functor(F1,N,A),functor(F2,N,A),!.
 
 %%%%Occur_Check%%%%
 
