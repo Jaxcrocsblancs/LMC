@@ -46,5 +46,5 @@ regle(F1?=F2,clash):- functor(F1,N,A),functor(F2,N,A),!.
 % on test si tout les éléments sont différents et on retourne l'opposé. Si un argument est égaux à X un faux remonte dans notoccur_check
 % pour finir par retourner vrai dans occur_check
 occur_check(X,T):- T =.. [_|R], \+notoccur_check(X,R),!.
-notoccur_check(X,[]).
+notoccur_check(_X,[]).
 notoccur_check(X,[T|R]):- X\==T, notoccur_check(X,R),!.
